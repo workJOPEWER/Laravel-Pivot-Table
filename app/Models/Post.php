@@ -12,4 +12,9 @@ class Post extends Model
 	protected $fillable = [
 		'title',
 	];
+
+	public function categories()
+	{
+		return $this->belongsToMany(Category::class)->withPivot('extra_field');
+	}
 }

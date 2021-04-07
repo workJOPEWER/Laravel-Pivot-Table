@@ -18,5 +18,10 @@ class PostController extends Controller
 		$post = new  Post();
 		$post->title = 'This is 5th post';
 		$post->save();
+
+		$categories = [2, 3, 4]; // Insert this categories with this post
+		$post->categories()->sync($categories);
+
+		return redirect()->route('posts.index');
 	}
 }
