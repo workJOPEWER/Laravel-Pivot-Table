@@ -15,12 +15,12 @@
                 <th scope="row">{{ $post->id }}</th>
                 <td>{{ $post->title }}</td>
                 <td>
-                    {{--@foreach($post->categories as $category)--}}
-                        {{--<div class="btn-group" role="group">--}}
-                            {{--<button type="button" class="btn btn-sm btn-primary">{{ $category->name }}</button>--}}
-                            {{--<button type="button" class="btn btn-sm btn-warning">{{ $category->pivot->extra_field }}</button>--}}
-                        {{--</div>--}}
-                    {{--@endforeach--}}
+                    @foreach($post->categories as $category)
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-sm btn-primary">{{ $category->name }}</button>
+                            <button type="button" class="btn btn-sm btn-warning">{{ $category->pivot->extra_field }}</button>
+                        </div>
+                    @endforeach
                 </td>
             </tr>
         @endforeach

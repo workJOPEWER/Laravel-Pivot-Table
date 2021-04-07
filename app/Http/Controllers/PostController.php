@@ -19,9 +19,24 @@ class PostController extends Controller
 		$post->title = 'This is 5th post';
 		$post->save();
 
-		$categories = [2, 3, 4]; // Insert this categories with this post
+//		$categories = [2, 3, 4]; // Insert this categories with this post
+		$categories = [
+			2 => ['extra_field' => 'test 2'],
+			3 => ['extra_field' => 'test 3'],
+		];
 		$post->categories()->sync($categories);
 
 		return redirect()->route('posts.index');
 	}
+
+	public function edit()
+	{
+		$post = Post::findOrFail(4); // Id of 4th post
+		$categories = [1, 2, 4]; // Remove 3 and add 1 category id
+		$post->categories()->sync($categories);
+
+		return redirect()->route('posts.index');
+	}
+
+
 }

@@ -17,6 +17,7 @@ class CreateCategoryPostTabel extends Migration
 			$table->id();
 			$table->foreignId( 'post_id' )->constrained( 'posts' )->onDelete( 'cascade' );
 			$table->foreignId( 'category_id' )->constrained( 'categories' )->onDelete( 'cascade' );
+			$table->string('extra_field')->nullable();
 			$table->timestamps();
 		} );
 	}
