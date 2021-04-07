@@ -12,4 +12,16 @@ class CategoryController extends Controller
 		$categories = Category::all();
 		return view('category', compact('categories'));
 	}
+
+	public function create()
+	{
+		$category = new Category();
+		$category->name = 'JavaScript';
+		$category->save();
+
+		$posts = [1, 3, 4]; // Post id
+		$category->myPosts()->sync($posts);
+
+		return redirect()->route('categories.index');
+	}
 }
