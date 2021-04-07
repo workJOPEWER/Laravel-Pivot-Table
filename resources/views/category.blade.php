@@ -15,7 +15,11 @@
                 <th scope="row">{{ $category->id }}</th>
                 <td>{{ $category->name }}</td>
                 <td>
-
+                    @foreach($category->myPosts as $post)
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-sm btn-primary">{{ $post->title }}</button>
+                        </div>
+                    @endforeach
                 </td>
             </tr>
         @endforeach
