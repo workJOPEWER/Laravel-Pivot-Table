@@ -12,4 +12,9 @@ class Category extends Model
 	protected $fillable = [
 		'name',
 	];
+
+	public function myPosts()
+	{
+		return $this->belongsToMany(Post::class, 'custom_pivot', 'my_c_id', 'my_p_id');
+	}
 }
