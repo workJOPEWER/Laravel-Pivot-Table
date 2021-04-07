@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('posts', [\App\Http\Controllers\PostController::class, 'index'])->name('posts.index');
+Route::get('post-create', [\App\Http\Controllers\PostController::class, 'create'])->name('posts.create');
