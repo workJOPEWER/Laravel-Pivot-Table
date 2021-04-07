@@ -32,7 +32,11 @@ class PostController extends Controller
 	public function edit()
 	{
 		$post = Post::findOrFail(4); // Id of 4th post
-		$categories = [1, 2, 4]; // Remove 3 and add 1 category id
+//		$categories = [1, 2, 4]; // Remove 3 and add 1 category id
+		$categories = [
+			1 => ['extra_field' => 'test 1'],
+			4 => ['extra_field' => 'test 4'],
+		];
 		$post->categories()->sync($categories);
 
 		return redirect()->route('posts.index');
