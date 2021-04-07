@@ -10,6 +10,13 @@ class PostController extends Controller
 	public function index()
 	{
 		$posts = Post::all();
-		return view('post', compact('posts'));
+		return view( 'post', compact( 'posts' ) );
+	}
+
+	public function create()
+	{
+		$post = new  Post();
+		$post->title = 'This is 5th post';
+		$post->save();
 	}
 }
