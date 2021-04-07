@@ -15,6 +15,8 @@ class CreateCustomPivotTable extends Migration
     {
         Schema::create('custom_pivot', function (Blueprint $table) {
             $table->id();
+			$table->foreignId( 'my_p_id' )->constrained( 'posts' )->onDelete( 'cascade' );
+			$table->foreignId( 'my_c_id' )->constrained( 'categories' )->onDelete( 'cascade' );
             $table->timestamps();
         });
     }
